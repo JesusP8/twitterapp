@@ -27,7 +27,7 @@ export default function LoginScreen({ navigation }) {
     // FUNCTION FOR LOGIN REQUEST
     const login = async () => {
         setLoading(true)
-        axios.post("", { user: user, password: password })
+        axios.post("https://backendjtwitter.herokuapp.com/login", { user: user, password: password })
             .then(async (response) => {
                 if (response.status === 200) {
                     setLoading(false)
@@ -43,7 +43,7 @@ export default function LoginScreen({ navigation }) {
 
     return (
         <View style={styles.inputView}>
-            <Image source={require('../../assets/River2.png')} style={{ height: 75, width: 75, alignSelf: 'center', borderRadius: 5 }} />
+          
             <Text style={styles.title}>Login</Text>
             <TextInput
                 style={styles.inputText}

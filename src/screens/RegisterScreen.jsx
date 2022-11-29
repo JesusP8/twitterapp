@@ -21,6 +21,7 @@ export default function RegisterScreen({ navigation }) {
         formData.append('password', data.password)
         formData.append('name', data.name)
         formData.append('bio', data.bio)
+        formData.append('location', data.location)
         formData.append('birthDate', "")
 
         if (data.picture && Platform.OS !== 'web') {
@@ -28,7 +29,7 @@ export default function RegisterScreen({ navigation }) {
             formData.append('picture', { uri: data.picture, name: `photo.${fileType}`, type: `image/${fileType}` })
         }
 
-        axios.post("", formData)
+        axios.post("https://backendjtwitter.herokuapp.com/register", formData)
             .then(async (response) => {
                 console.log(response.data);
                 setLoading(false)
